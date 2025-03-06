@@ -1,0 +1,24 @@
+# DNS Configuration File
+# Format: RECORD_TYPE | HOSTNAME | EXPECTED_VALUE
+#
+# Lines starting with # are comments and will be ignored
+# Fields are separated by the pipe character (|)
+
+# CNAME Records
+CNAME | www.example.com | example.cdn.cloudflare.net.
+CNAME | mail.example.com | mail-server.example.net.
+CNAME | blog.example.com | example-blog.netlify.app.
+CNAME | shop.example.com | example-store.shopify.com.
+CNAME | s1._domainkey.example.com | s1.domainkey.example.mailprovider.net.
+CNAME | s2._domainkey.example.com | s2.domainkey.example.mailprovider.net.
+CNAME | calendar.example.com | calendar.google.com.
+CNAME | docs.example.com | example-docs.amazonaws.com.
+CNAME | support.example.com | help.zendesk.com.
+
+# TXT Records
+TXT | example.com | "v=spf1 include:_spf.google.com include:_spf.mailprovider.com include:servers.example.net ip4:192.0.2.1 -all"
+TXT | mail.example.com | "v=spf1 include:_spf.google.com include:mailservice.com include:example.net -all"
+TXT | marketing.example.com | "v=spf1 mx include:campaign.example.com include:_spf.mailchimp.com -all"
+TXT | _dmarc.example.com | "v=DMARC1; p=reject; rua=mailto:dmarc-reports@example.com,mailto:reports@example-dmarc.com"
+TXT | _dmarc.mail.example.com | "v=DMARC1; p=reject; rua=mailto:dmarc-reports@example.com,mailto:reports@example-dmarc.com"
+TXT | _dmarc.marketing.example.com | "v=DMARC1; p=reject; rua=mailto:dmarc-reports@example.com,mailto:reports@example-dmarc.com"
